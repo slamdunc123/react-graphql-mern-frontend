@@ -26,8 +26,13 @@ const AddProject = () => {
 			alert('Please complete all fields.');
 
 		addProject(formData.name, formData.description);
+        setFormData({
+            name: '',
+            description: ''
+        })
 	};
-	return (
+	return (<>
+    <h5>Add Project</h5>
 		<form onSubmit={handleOnSubmit}>
 			<div className='mb-3'>
 				<label htmlFor='exampleInputName1' className='form-label'>
@@ -36,34 +41,37 @@ const AddProject = () => {
 				<input
 					type='text'
 					name='name'
+                    value={formData.name}
 					className='form-control'
 					id='exampleInputName1'
 					aria-describedby='nameHelp'
 					placeholder='Name'
 					onChange={handleOnChange}
-				/>
+                    />
 			</div>
 			<div className='mb-3'>
 				<label
 					htmlFor='exampleInputDescription1'
 					className='form-label'
-				>
+                    >
 					Description
 				</label>
 				<input
 					type='text'
 					name='description'
+                    value={formData.description}
 					className='form-control'
 					id='exampleInputDescription1'
 					placeholder='Description'
 					onChange={handleOnChange}
-				/>
+                    />
 			</div>
 
 			<button type='submit' className='btn btn-primary'>
 				Submit
 			</button>
 		</form>
+                    </>
 	);
 };
 

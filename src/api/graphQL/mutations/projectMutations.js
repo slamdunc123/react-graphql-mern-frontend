@@ -1,17 +1,11 @@
 import { gql } from '@apollo/client';
 
 const ADD_PROJECT = gql`
-	mutation AddProject(
-        $name: String!
-        $description: String!
-        ) {
-		addProject(
-            name: $name
-            description: $description
-        ) {
+	mutation AddProject($name: String!, $description: String!) {
+		addProject(name: $name, description: $description) {
 			id
 			name
-            description
+			description
 		}
 	}
 `;
@@ -24,4 +18,14 @@ const DELETE_PROJECT = gql`
 	}
 `;
 
-export { ADD_PROJECT, DELETE_PROJECT };
+const UPDATE_PROJECT = gql`
+	mutation UpdateProject($id: ID!, $name: String!, $description: String!) {
+		updateProject(id: $id, name: $name, description: $description) {
+			id
+			name
+			description
+		}
+	}
+`;
+
+export { ADD_PROJECT, DELETE_PROJECT, UPDATE_PROJECT };
