@@ -22,56 +22,58 @@ const AddProject = () => {
 
 	const handleOnSubmit = (e) => {
 		e.preventDefault();
-		if (name === '' || description === '')
+		if (name === '' || description === '') {
 			alert('Please complete all fields.');
-
-		addProject(formData.name, formData.description);
-        setFormData({
-            name: '',
-            description: ''
-        })
+		} else {
+			addProject(formData.name, formData.description);
+			setFormData({
+				name: '',
+				description: '',
+			});
+		}
 	};
-	return (<>
-    <h5>Add Project</h5>
-		<form onSubmit={handleOnSubmit}>
-			<div className='mb-3'>
-				<label htmlFor='exampleInputName1' className='form-label'>
-					Name
-				</label>
-				<input
-					type='text'
-					name='name'
-                    value={formData.name}
-					className='form-control'
-					id='exampleInputName1'
-					aria-describedby='nameHelp'
-					placeholder='Name'
-					onChange={handleOnChange}
-                    />
-			</div>
-			<div className='mb-3'>
-				<label
-					htmlFor='exampleInputDescription1'
-					className='form-label'
-                    >
-					Description
-				</label>
-				<input
-					type='text'
-					name='description'
-                    value={formData.description}
-					className='form-control'
-					id='exampleInputDescription1'
-					placeholder='Description'
-					onChange={handleOnChange}
-                    />
-			</div>
+	return (
+		<>
+			<h5>Add Project</h5>
+			<form onSubmit={handleOnSubmit}>
+				<div className='mb-3'>
+					<label htmlFor='exampleInputName1' className='form-label'>
+						Name
+					</label>
+					<input
+						type='text'
+						name='name'
+						value={formData.name}
+						className='form-control'
+						id='exampleInputName1'
+						aria-describedby='nameHelp'
+						placeholder='Name'
+						onChange={handleOnChange}
+					/>
+				</div>
+				<div className='mb-3'>
+					<label
+						htmlFor='exampleInputDescription1'
+						className='form-label'
+					>
+						Description
+					</label>
+					<input
+						type='text'
+						name='description'
+						value={formData.description}
+						className='form-control'
+						id='exampleInputDescription1'
+						placeholder='Description'
+						onChange={handleOnChange}
+					/>
+				</div>
 
-			<button type='submit' className='btn btn-primary'>
-				Submit
-			</button>
-		</form>
-                    </>
+				<button type='submit' className='btn btn-primary'>
+					Submit
+				</button>
+			</form>
+		</>
 	);
 };
 
