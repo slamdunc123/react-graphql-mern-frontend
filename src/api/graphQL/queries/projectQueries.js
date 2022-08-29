@@ -5,6 +5,7 @@ query getProjects{
     projects{
         id
         name
+        description
     }
 }`
 

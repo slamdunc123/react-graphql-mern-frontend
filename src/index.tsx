@@ -8,7 +8,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 const client = new ApolloClient({
     uri: 'http://localhost:5000/graphql',
-    cache: new InMemoryCache
+    cache: new InMemoryCache()
 })
 
 
